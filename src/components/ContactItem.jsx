@@ -1,6 +1,6 @@
 import './ContactItem.css'
 
-function ContactItem({id, nome, telefone, email, deletar}){
+function ContactItem({id, nome, telefone, email, deletar, editar}){
 
     return (
         <div className='contact-card'>
@@ -9,7 +9,7 @@ function ContactItem({id, nome, telefone, email, deletar}){
             <p>📞 {telefone}</p>
             <p>✉️ {email}</p>
             <div id='block' >
-                <button id='editar' >Editar</button>
+                <button id='editar' onClick={editar}>Editar</button>
                 <button id='excluir' onClick={() => deletar(id)}>Excluir</button>
             </div>
         </div>

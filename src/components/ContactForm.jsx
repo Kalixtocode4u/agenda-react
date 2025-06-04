@@ -1,15 +1,16 @@
 import { useState } from "react"
 import "./ContactForm.css"
 
-function ContactForm({adicionar, fechar}){
-    const [nome, setNome] = useState("")
-    const [telefone, setTelefone] = useState("")
-    const [email, setEmail] = useState("")
+function ContactForm({adicionar, fechar, initialData}){
+    const [nome, setNome] = useState(initialData.nome || "")
+    const [telefone, setTelefone] = useState(initialData.telefone || "")
+    const [email, setEmail] = useState(initialData.email || "")
 
     function handleSubmit(event){
         event.preventDefault()
 
         const newContato = {
+            id: initialData.id,
             nome: nome,
             telefone: telefone,
             email: email,

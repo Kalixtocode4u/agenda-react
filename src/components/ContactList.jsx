@@ -1,6 +1,6 @@
 import ContactItem from "./ContactItem"
 
-function ContactList({ contatos, onDelete }){
+function ContactList({ contatos, onDelete, onEdit }){
     return (
         <div>
             {contatos.map((contato) => (
@@ -11,6 +11,7 @@ function ContactList({ contatos, onDelete }){
                     telefone={contato.telefone}
                     email={contato.email}
                     deletar={onDelete}
+                    editar={() => onEdit(contato)}
                 />
             ))}
         </div>
