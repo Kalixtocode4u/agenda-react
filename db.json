@@ -1,0 +1,28 @@
+{
+  "contatos": [
+    {
+      "id": "d593",
+      "nome": "Jamalão",
+      "telefone": "(88)99088-1213",
+      "email": "jamlao@email.com"
+    },
+    {
+      "id": "9e69",
+      "nome": "Carlos",
+      "telefone": "(69)99076-7654",
+      "email": "carlos@email.com"
+    },
+    {
+      "id": "8153",
+      "nome": "kaique",
+      "telefone": "(98)99765-7655",
+      "email": "kaique@email.com"
+    },
+    {
+      "id": "6b4a",
+      "nome": "João",
+      "telefone": "(32)99077-6234",
+      "email": "joao@email.com"
+    }
+  ]
+}
