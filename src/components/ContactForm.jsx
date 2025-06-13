@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./ContactForm.css"
 
-function ContactForm({adicionar, fechar, initialData}){
+function ContactForm({adicionar, fechar, initialData = {}}){
     const [nome, setNome] = useState(initialData.nome || "")
     const [telefone, setTelefone] = useState(initialData.telefone || "")
     const [email, setEmail] = useState(initialData.email || "")

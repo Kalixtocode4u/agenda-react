@@ -9,6 +9,7 @@ function App() {
   const [showForm, setShowForm] = useState(false)
   const [contatos, setContatos] = useState([])
   const [editandoContato, setEditandoContato] = useState(null)
+  
   useEffect(() => {
     fetch("http://localhost:3001/contatos")
       .then(function(res) {
@@ -61,7 +62,7 @@ function App() {
   }
 
   function updateContact(updatedContact) {
-    fetch(`http://localhost:3001/contacts/${updatedContact.id}`, {
+    fetch(`http://localhost:3001/contatos/${updatedContact.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -70,13 +71,15 @@ function App() {
     })
     .then((res) => res.json())
     .then((data) => {
-      const updatedList = contacts.map((contact) =>
-        contact.id === data.id ? data : contact
+      const updatedList = contatos.map((contato) =>
+        contato.id === data.id ? data : contato
       );
-      setContatos(updatedList);
+      
       setEditandoContato(null);
+      setContatos(updatedList);
+
     })
-    .catch((err) => console.error("Erro ao editar contato:", err));
+    .catch((err) => console.error("Erro ao editar contato: ", err));
   }
 
 
@@ -90,11 +93,13 @@ function App() {
       <div className="container">
         <h1>Agenda de Contatos</h1>
         {showForm && <ContactForm adicionar={addContact} fechar={() => setShowForm(false)} /> }
+        
         {!showForm && !editandoContato && (
           <button onClick={() => setShowForm(true)} id='addBtn'>
             ➕ Novo Contato
           </button>
-        ) }
+        )}
+        
         {editandoContato && (
           <ContactForm
             initialData={editandoContato}
@@ -102,6 +107,7 @@ function App() {
             fechar={() => setEditandoContato(null)}
           />
         )}
+
         <ContactList contatos={contatos} onDelete={deleteContact} onEdit={handleEdit}/>
       </div>
     </>
